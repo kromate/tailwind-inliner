@@ -34,7 +34,7 @@ watch(isDark, (value) => {
 });
 
 const onChange = (payload: Record<string, any>) => {
-  console.log(payload);
+  // console.log(payload);
   iframe.value!.srcdoc = generateHTML(payload, isDark.value);
 };
 

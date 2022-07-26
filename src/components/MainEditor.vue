@@ -14,7 +14,7 @@
       >
         CSS
       </div>
-      <!-- <CSSEditor @change="onChange" /> -->
+      <CSSEditor @change="onChange" />
     </div>
   </div>
 </template>
