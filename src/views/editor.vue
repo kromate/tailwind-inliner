@@ -1,10 +1,10 @@
 <template>
-  <Nav />
+  <TopBar />
   <Main />
 </template>
 
 <script setup lang="ts">
-import Nav from "@/components/Nav.vue";
+import TopBar from "@/components/TopBar.vue";
 import Main from "@/components/Main.vue";
 </script>
 
