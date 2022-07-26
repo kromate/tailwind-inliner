@@ -1,15 +1,15 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <Nav />
+  <Main />
 </template>
 
+<script setup lang="ts">
+import Nav from "@/components/Nav.vue";
+import Main from "@/components/Main.vue";
+</script>
+
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+body {
+  --nav-height: 4.2rem;
 }
 </style>
