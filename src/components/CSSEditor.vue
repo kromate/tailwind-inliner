@@ -1,8 +1,5 @@
 <template>
-  <div
-    ref="container"
-    class="absolute inset-x-0 top-[28px] h-[calc(100%-28px)]"
-  ></div>
+  <div ref="container" class="absolute inset-0 h-full"></div>
 </template>
 
 <script setup lang="ts">

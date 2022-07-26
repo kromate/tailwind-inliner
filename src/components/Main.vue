@@ -2,7 +2,7 @@
   <main class="border-t border-gray-200 dark:border-gray-700">
     <div class="flex flex-row h-full">
       <div id="split-0" class="w-full">
-        <MainEditor />
+        <MainEditor @change="onChange" />
       </div>
       <iframe
         ref="iframe"
@@ -33,10 +33,10 @@ watch(isDark, (value) => {
   );
 });
 
-// const onChange = (payload: Record<string, any>) => {
-//   console.log(payload);
-//   iframe.value!.srcdoc = generateHTML(payload, isDark.value);
-// };
+const onChange = (payload: Record<string, any>) => {
+  console.log(payload);
+  iframe.value!.srcdoc = generateHTML(payload, isDark.value);
+};
 
 onMounted(() => {
   Split(["#split-0", "iframe"]);
