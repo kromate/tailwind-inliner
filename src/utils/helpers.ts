@@ -1,27 +1,14 @@
 import { createGlobalState, useDark } from '@vueuse/core';
 import { initialCSSValue, initialHTMLValue } from './intials';
 // import style from '../assets/tailwind.min.css';
+import { generateStyles } from './styleGenerator/index';
 const scriptUrl = new URL('../assets/tailwindCDN.js', import.meta.url);
 
 export const generateHTML = (
 	payload: Record<string, any>,
 	isDark?: boolean
 ) => {
-	const html = payload.html;
-	// console.log(html);
-	let classes: any = []; // empty array
-
-	html.replace(/class=['"][^'"]+/g, function (m) {
-		classes = classes.concat(m.match(/[^'"]+$/)[0].split(' '));
-	});
-
-	classes = classes.filter(function (item, pos) {
-		// console.log(item);
-		return classes.indexOf(item) == pos;
-	}); // return unique classes
-
-	console.log(classes);
-
+	generateStyles(payload.html);
 	return `<html class="${isDark ? 'dark' : ''}">
         <head>
             <script src="${scriptUrl.href}"></script>
