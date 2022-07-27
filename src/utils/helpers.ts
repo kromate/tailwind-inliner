@@ -8,7 +8,6 @@ export const generateHTML = (
 	payload: Record<string, any>,
 	isDark?: boolean
 ) => {
-	generateStyles(payload.html);
 	return `<html class="${isDark ? 'dark' : ''}">
         <head>
            
