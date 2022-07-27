@@ -32,7 +32,7 @@ onMounted(() => {
     readOnly: true,
   });
 
-  emit("change", editorValue.value);
+  // emit("change", editorValue.value);
 
   editor.onDidChangeModelContent(
     useDebounceFn(() => {
