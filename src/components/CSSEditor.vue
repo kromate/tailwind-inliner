@@ -6,24 +6,7 @@
 import { onMounted, ref, onUnmounted, watch, toRefs } from "vue";
 import { useResizeObserver, useStorage, useDebounceFn } from "@vueuse/core";
 import { initialEditorValue, StorageName, useDarkGlobal } from "../utils";
-
-// Import monaco
-// https://github.com/vitejs/vite/discussions/1791
 import * as monaco from "monaco-editor";
-import editorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
-import cssWorker from "monaco-editor/esm/vs/language/css/css.worker?worker";
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-self.MonacoEnvironment = {
-  getWorker(_: string, label: string) {
-    if (label === "css" || label === "handlebars" || label === "razor") {
-      return new cssWorker();
-    }
-    return new editorWorker();
-  },
-};
-
 const container = ref<HTMLDivElement | null>(null);
 
 let editor: monaco.editor.IStandaloneCodeEditor;
@@ -46,6 +29,7 @@ onMounted(() => {
   editor = monaco.editor.create(container.value!, {
     language: "css",
     theme: isDark.value ? "vs-dark" : "vs",
+    readOnly: true,
   });
 
   emit("change", editorValue.value);
@@ -59,7 +43,6 @@ onMounted(() => {
     }, 500)
   );
 
-  // Set values from storage on load
   if (editorValue.value["css"]) {
     editor.setValue(editorValue.value["css"]);
     editor.restoreViewState(editorState.value["css"]);

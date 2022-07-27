@@ -24,6 +24,8 @@ import Split from "split.js";
 import CSSEditor from "./CSSEditor.vue";
 import HTMLEditor from "./HTMLEditor.vue";
 import { onMounted } from "vue";
+import { initEditor } from "../utils/editor";
+
 const emit = defineEmits(["change"]);
 
 const onChange = (payload: Record<string, any>) => {
@@ -31,6 +33,7 @@ const onChange = (payload: Record<string, any>) => {
 };
 
 onMounted(() => {
+  initEditor();
   Split(["#html", "#css"], {
     direction: "vertical",
     gutterSize: 28,

@@ -19,8 +19,26 @@ import { onMounted, ref, watch } from "vue";
 import { useStorage } from "@vueuse/core";
 import Split from "split.js";
 
-import { generateHTML, useDarkGlobal } from "../utils";
+import { generateHTML, StorageName, useDarkGlobal } from "../utils";
 import MainEditor from "./MainEditor.vue";
+import inline from "../utils/inliner";
+
+// inline(
+//   `
+//   <html>
+//     <head>
+//       <title>Test</title>
+//       <style>h1 { color:red; }</style>
+//     </head>
+//     <body>
+//       <h1>Test</h1>
+//     </body>
+//   </html>
+//   `,
+//   { remove_style_tags: true }
+// ).then((item) => {
+//   console.log(item);
+// });
 
 const iframe = ref<HTMLIFrameElement>();
 
@@ -34,7 +52,10 @@ watch(isDark, (value) => {
 });
 
 const onChange = (payload: Record<string, any>) => {
-  // console.log(payload);
+  // const pp = generateHTML(payload, isDark.value);
+  // inline(pp, { remove_style_tags: true }).then((item) => {
+  //   console.log(item);
+  // });
   iframe.value!.srcdoc = generateHTML(payload, isDark.value);
 };
 
