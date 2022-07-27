@@ -11,7 +11,7 @@ export const generateHTML = (
 	return `<html class="${isDark ? 'dark' : ''}">
         <head>
            
-            <style id="_style">${payload.css}</style>
+            <style id="_style">	${generateStyles(payload.html)}</style>
         
         </head>
         <body>
