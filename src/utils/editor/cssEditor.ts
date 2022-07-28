@@ -56,3 +56,7 @@ export const unmountCSSEditor = () => {
 	cssEditor?.dispose();
 	editorObserver.stop();
 };
+
+export const updateCSSEditor = (value: any) => {
+	cssEditor.setValue(value);
+};
