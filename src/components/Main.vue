@@ -52,10 +52,10 @@ watch(isDark, (value) => {
 });
 
 const onChange = (payload: Record<string, any>) => {
-  // const pp = generateHTML(payload, isDark.value);
-  // inline(pp, { remove_style_tags: true }).then((item) => {
-  //   console.log(item);
-  // });
+  const pp = generateHTML(payload, isDark.value);
+  inline(pp, { remove_style_tags: true }).then((item) => {
+    console.log(item);
+  });
   iframe.value!.srcdoc = generateHTML(payload, isDark.value);
 };
 

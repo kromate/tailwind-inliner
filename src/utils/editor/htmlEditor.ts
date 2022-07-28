@@ -6,6 +6,7 @@ import type { Ref } from 'vue';
 import { useResizeObserver, useStorage, useDebounceFn } from '@vueuse/core';
 import { updateCSSEditor } from './cssEditor';
 import { generateStyles } from '../styleGenerator/index';
+import { prettify } from './prettier/index';
 
 const isDark = useDarkGlobal();
 
@@ -31,16 +32,18 @@ export const mounthtmlEditor = (container: Ref<HTMLDivElement>, emit: any) => {
 	editorObserver = useResizeObserver(container, () => {
 		htmlEditor.layout();
 	});
-
 	htmlEditor.onDidChangeModelContent(
 		useDebounceFn(() => {
 			if (editorValue.value['html'] !== htmlEditor.getValue()!) {
 				editorValue.value['html'] = htmlEditor.getValue()!;
-				updateCSSEditor(generateStyles(editorValue.value['html']));
+
 				emit('change', editorValue.value);
+
+				updateCSSEditor(prettify(generateStyles(editorValue.value['html'])));
 			}
 		}, 0)
 	);
+	emit('change', editorValue.value);
 
 	if (editorValue.value['html']) {
 		htmlEditor.setValue(editorValue.value['html']);

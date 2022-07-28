@@ -21,7 +21,7 @@ const emit =
   defineEmits<(e: "change", payload: typeof editorValue.value) => void>();
 
 onMounted(() => {
-  mountCSSEditor(container);
+  mountCSSEditor(container, emit);
   // emit("change", editorValue.value);
 });
 
