@@ -8,11 +8,23 @@ export const generateHTML = (
 	payload: Record<string, any>,
 	isDark?: boolean
 ) => {
+	// generateStyles(payload.html);
 	return `<html class="${isDark ? 'dark' : ''}">
         <head>
-           
-            <style id="_style">	${generateStyles(payload.html)}</style>
-        
+            <script src="${scriptUrl.href}"></script>
+            <style id="_style">${payload.css}</style>
+            <script type="module" id="_script">
+                ${payload.javascript}
+
+                window.addEventListener('message', function(event) {
+                    console.log(event)
+                    if (event.data === 'theme-dark') {
+                        document.documentElement.classList.add('dark')
+                    } else if (event.data === 'theme-light') {
+                        document.documentElement.classList.remove('dark')
+                    }
+                })
+            </script>
         </head>
         <body>
             ${payload.html}
@@ -26,17 +38,3 @@ export const initialEditorValue = {
 	html: initialHTMLValue,
 	css: initialCSSValue,
 };
-
-//  <script src='${scriptUrl.href}'></script>;
-// <script type="module" id="_script">
-//             ${payload.javascript}
-
-//             window.addEventListener('message', function(event) {
-//                 console.log(event)
-//                 if (event.data === 'theme-dark') {
-//                     document.documentElement.classList.add('dark')
-//                 } else if (event.data === 'theme-light') {
-//                     document.documentElement.classList.remove('dark')
-//                 }
-//             })
-//         </script>

@@ -24,7 +24,7 @@ import Split from "split.js";
 import CSSEditor from "./CSSEditor.vue";
 import HTMLEditor from "./HTMLEditor.vue";
 import { onMounted } from "vue";
-import { initEditor } from "../utils/editor";
+import { initEditor } from "../utils/editor/index";
 
 const emit = defineEmits(["change"]);
 
