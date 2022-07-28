@@ -32,5 +32,10 @@ const allReplace = function (stringData: string, obj: any) {
 };
 
 const cssCompatibleName = (cssClass: string) => {
-	console.log(cssClass.replaceAll(':', '\:'));
+	// console.log(
+	// 	cssClass.replace(/./g, (m) => (/[a-z0-9-_]/i.test(m) ? m : `\\${m}`))
+	// );
+	return cssClass.replace(/./g, (m) => (/[a-z0-9-_]/i.test(m) ? m : `\\${m}`));
+
+	// return cssClass.replaceAll(':', '-').replaceAll('/', '-');
 };
