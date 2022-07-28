@@ -4,7 +4,9 @@ export const generateStyles = (html: string) => {
 	let newStyles = '';
 	const classArray = getInlineClassesArray(html);
 	classArray.forEach((element: string) => {
-		const css = `.${element}{${getConvertedClasses(element)}}`;
+		const css = `.${cssCompatibleName(element)}{${getConvertedClasses(
+			element
+		)}}`;
 		newStyles += `
          ${css}`;
 	});
@@ -23,4 +25,12 @@ const getInlineClassesArray = (html: any) => {
 	});
 
 	return classes;
+};
+
+const allReplace = function (stringData: string, obj: any) {
+	return stringData.replace(/[abc]/g, (m) => obj[m]);
+};
+
+const cssCompatibleName = (cssClass: string) => {
+	console.log(cssClass.replaceAll(':', '\:'));
 };

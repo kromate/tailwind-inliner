@@ -16,6 +16,7 @@ module.exports = {
         ignores: [],
       },
     ],
+    "no-useless-escape": "off",
   },
   overrides: [
     {
