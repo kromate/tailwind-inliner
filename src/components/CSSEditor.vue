@@ -8,11 +8,9 @@ import { useResizeObserver, useStorage, useDebounceFn } from "@vueuse/core";
 import { initialEditorValue, StorageName, useDarkGlobal } from "../utils";
 import * as monaco from "monaco-editor";
 import { generateStyles } from "../utils/styleGenerator";
-import { cssEditor, mountCSSEditor } from "../utils/editor/cssEditor";
+import { mountCSSEditor, unmountCSSEditor } from "../utils/editor/cssEditor";
 
 const container = ref<HTMLDivElement | null>(null);
-
-const isDark = useDarkGlobal();
 
 const editorValue = useStorage<Record<string, any>>(
   StorageName.EDITOR_VALUE,
@@ -27,12 +25,7 @@ onMounted(() => {
   // emit("change", editorValue.value);
 });
 
-const editorObserver = useResizeObserver(container, () => {
-  cssEditor.layout();
-});
-
 onUnmounted(() => {
-  cssEditor?.dispose();
-  editorObserver.stop();
+  unmountCSSEditor();
 });
 </script>
