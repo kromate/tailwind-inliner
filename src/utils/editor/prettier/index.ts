@@ -1,10 +1,10 @@
 import './standalone';
-import './css';
+import './html';
 
 export const prettify = (value: any) => {
 	//@ts-ignore
 	let formatted = prettier.format(value, {
-		parser: 'css',
+		parser: 'html',
 		//@ts-ignore
 		plugins: prettierPlugins,
 		tabWidth: 4,

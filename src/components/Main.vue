@@ -7,7 +7,7 @@
       <iframe
         ref="iframe"
         class="h-full w-full"
-        sandbox="allow-scripts"
+        sandbox="allow-scripts allow-same-origin"
         frameBorder="0"
       ></iframe>
     </div>
@@ -21,7 +21,6 @@ import Split from "split.js";
 
 import { generateHTML, StorageName, useDarkGlobal } from "../utils";
 import MainEditor from "./MainEditor.vue";
-import inline from "../utils/inliner";
 
 const iframe = ref<HTMLIFrameElement>();
 
@@ -35,10 +34,6 @@ watch(isDark, (value) => {
 });
 
 const onChange = (payload: Record<string, any>) => {
-  const pp = generateHTML(payload, isDark.value);
-  // inline(pp, { remove_style_tags: true }).then((item) => {
-  //   console.log(item);
-  // });
   iframe.value!.srcdoc = generateHTML(payload, isDark.value);
 };
 

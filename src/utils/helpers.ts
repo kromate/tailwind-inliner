@@ -12,7 +12,6 @@ export const generateHTML = (
 	return `<html class="${isDark ? 'dark' : ''}">
         <head>
             <script src="${scriptUrl.href}"></script>
-            <style id="_style">${payload.css}</style>
             <script type="module" id="_script">
                 ${payload.javascript}
 
