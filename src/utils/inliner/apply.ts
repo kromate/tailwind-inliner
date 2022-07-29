@@ -74,7 +74,7 @@ export const apply = (doc: HTMLElement, styles: StyleMap[]) => {
 
 	// build element style
 	styles.forEach((item) => {
-		console.log(item);
+		// console.log(item);
 		doc.querySelectorAll(item.selector).forEach((el: HTMLElement) => {
 			const element = getElement(el, elements);
 

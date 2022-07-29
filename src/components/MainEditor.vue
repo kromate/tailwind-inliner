@@ -12,7 +12,7 @@
       <div
         class="absolute font-bold -top-7 bg-slate-700 text-white px-4 py-0.5"
       >
-        CSS
+        Converted HTML
       </div>
       <CSSEditor @change="onChange" />
     </div>

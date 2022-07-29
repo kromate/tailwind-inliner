@@ -24,21 +24,21 @@ export const mountCSSEditor = (container: Ref<HTMLDivElement>, emit: any) => {
 	cssEditor = monaco.editor.create(container.value!, {
 		language: 'css',
 		theme: isDark.value ? 'vs-dark' : 'vs',
-		readOnly: false,
+		readOnly: true,
 	});
 
 	editorObserver = useResizeObserver(container, () => {
 		cssEditor.layout();
 	});
 
-	cssEditor.onDidChangeModelContent(
-		useDebounceFn(() => {
-			if (editorValue.value['css'] !== cssEditor.getValue()!) {
-				editorValue.value['css'] = cssEditor.getValue()!;
-				emit('change', editorValue.value);
-			}
-		}, 500)
-	);
+	// cssEditor.onDidChangeModelContent(
+	// 	useDebounceFn(() => {
+	// 		if (editorValue.value['css'] !== cssEditor.getValue()!) {
+	// 			editorValue.value['css'] = cssEditor.getValue()!;
+	// 			emit('change', editorValue.value);
+	// 		}
+	// 	}, 500)
+	// );
 
 	if (editorValue.value['css']) {
 		cssEditor.setValue(editorValue.value['css']);
