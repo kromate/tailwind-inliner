@@ -3,10 +3,8 @@
     <div class="flex items-center justify-between h-full">
       <span
         class="p-1 md:text-3xl text-xl font-black leading-none text-gray-900"
-        ><span>Tailwind-inliner</span
-        ><span class="text-indigo-600">.</span></span
-      >
-
+        ><img src="/mlogo.svg" alt="logo" class="h-10 md:h-auto" />
+      </span>
       <div>
         <a
           class="mx-2 relative text-black flex items-center md:text-xl text-base gap-3"
