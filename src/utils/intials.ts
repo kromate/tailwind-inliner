@@ -9,6 +9,9 @@ export const initialHTMLValue = `
               /* -------------------------------------
           RESPONSIVE AND MOBILE FRIENDLY STYLES
       ------------------------------------- */
+      #back{
+        z-index:-1;
+      }
       @media only screen and (max-width: 620px) {
         table[class=body] h1 {
           font-size: 28px !important;
@@ -79,8 +82,9 @@ export const initialHTMLValue = `
     </style>
 
   </head>
+    <img src="https://play.tailwindcss.com/img/beams.jpg" alt="" id="back" class="fixed  top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 z-0" width="1308" /> 
   <body class="bg-gray-300 text-sm m-0 p-0 leading-[1.4] font-sans">
-   <img src="https://play.tailwindcss.com/img/beams.jpg" alt="" class="fixed  top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 -z-[100]" width="1308" />
+ 
     <table class="min-w-full w-full border-collapse" role="presentation" border="0" cellpadding="0" cellspacing="0" class="bg-gray-300 w-full">
       <tr>
         <td class="text-sm align-top">&nbsp;</td>
