@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 @layer component {
     .btn {
         @apply flex items-center w-auto px-6 py-3 mb-3 text-lg !text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto;
+    }
+    .gutter {
+        @apply dark:bg-gray-900 bg-no-repeat;
+        background-position: 50%;
+    }
+
+    .gutter.gutter-vertical {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+        cursor: row-resize;
     }
 }

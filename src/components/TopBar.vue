@@ -15,7 +15,7 @@
       <div class="flex justify-center lg:flex lg:mt-0 lg:-mx-2">
         <a
           class="mx-2 relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300"
-          href="https://github.com/wobsoriano/code-playground"
+          href="https://github.com/kromate/tailwind-inliner"
           target="_BLANK"
         >
           <Github />

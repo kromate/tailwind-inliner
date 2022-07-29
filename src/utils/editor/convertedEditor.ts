@@ -22,7 +22,7 @@ let editorObserver: any;
 
 export const mountCSSEditor = (container: Ref<HTMLDivElement>, emit: any) => {
 	cssEditor = monaco.editor.create(container.value!, {
-		language: 'css',
+		language: 'html',
 		theme: isDark.value ? 'vs-dark' : 'vs',
 		readOnly: true,
 	});

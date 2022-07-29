@@ -23,8 +23,6 @@ import { generateHTML, StorageName, useDarkGlobal } from "../utils";
 import MainEditor from "./MainEditor.vue";
 import inline from "../utils/inliner";
 
-
-
 const iframe = ref<HTMLIFrameElement>();
 
 const isDark = useDarkGlobal();
@@ -52,15 +50,5 @@ onMounted(() => {
 <style>
 main {
   height: 100vh;
-}
-
-.gutter {
-  @apply dark:bg-gray-900 bg-no-repeat;
-  background-position: 50%;
-}
-
-.gutter.gutter-horizontal {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
-  cursor: col-resize;
 }
 </style>

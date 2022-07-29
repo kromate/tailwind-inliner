@@ -4,9 +4,9 @@ import { initialEditorValue, StorageName, useDarkGlobal } from '@/utils';
 import { watch } from 'vue';
 import type { Ref } from 'vue';
 import { useResizeObserver, useStorage, useDebounceFn } from '@vueuse/core';
-import { updateCSSEditor } from './cssEditor';
-import { generateStyles } from '../styleGenerator/index';
-import { prettify } from './prettier/index';
+// import { updateCSSEditor } from './cssEditor';
+// import { generateStyles } from '../styleGenerator/index';
+// import { prettify } from './prettier/index';
 
 const isDark = useDarkGlobal();
 
@@ -39,7 +39,7 @@ export const mounthtmlEditor = (container: Ref<HTMLDivElement>, emit: any) => {
 
 				emit('change', editorValue.value);
 
-				updateCSSEditor(prettify(generateStyles(editorValue.value['html'])));
+				// updateCSSEditor(prettify(generateStyles(editorValue.value['html'])));
 			}
 		}, 0)
 	);

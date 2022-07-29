@@ -8,7 +8,10 @@ import { useResizeObserver, useStorage, useDebounceFn } from "@vueuse/core";
 import { initialEditorValue, StorageName, useDarkGlobal } from "../utils";
 import * as monaco from "monaco-editor";
 import { generateStyles } from "../utils/styleGenerator";
-import { mountCSSEditor, unmountCSSEditor } from "../utils/editor/cssEditor";
+import {
+  mountCSSEditor,
+  unmountCSSEditor,
+} from "../utils/editor/convertedEditor";
 
 const container = ref<HTMLDivElement | null>(null);
 
@@ -28,4 +31,8 @@ onMounted(() => {
 onUnmounted(() => {
   unmountCSSEditor();
 });
+</script>
+
+<script lang="ts">
+export default {};
 </script>
