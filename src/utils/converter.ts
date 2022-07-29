@@ -10,11 +10,16 @@ export const convert = () => {
 		?.outerHTML as string;
 
 	inline(i_frame_content, {
-		remove_style_tags: true,
+		remove: true,
 	}).then((item) => {
 		const pretifiedHTML = prettify(item);
-		console.log(typeof pretifiedHTML);
+		// let removedClassAttribute = pretifiedHTML.replaceAll(
+		// 	/(?<=class=")(.*?)(?=\")/g,
+		// 	''
+		// );
+		// let removeClass = removedClassAttribute.replaceAll('class=""', '');
+		// updateCSSEditor(removeClass);
 
-		// updateCSSEditor();
+		updateCSSEditor(pretifiedHTML);
 	});
 };
