@@ -14,11 +14,11 @@
       >
         Converted HTML
       </div>
-      <div
+      <button
         class="absolute font-bold right-0 -top-7 bg-indigo-900 text-white px-4 py-0.5"
       >
         Convert
-      </div>
+      </button>
       <CSSEditor @change="onChange" />
     </div>
   </div>
