@@ -74,32 +74,27 @@ export const initialHTMLValue = `
           line-height: inherit !important;
           text-decoration: none !important; 
         }
-        .btn-primary table td:hover {
-          background-color: #d5075d !important; 
-        }
-        .btn-primary a:hover {
-          background-color: #d5075d !important;
-          border-color: #d5075d !important; 
-        } 
+    
       }
     </style>
 
   </head>
-  <body class="bg-gray-300 text-sm m-0 p-0 leading-[1.4] ">
+  <body class="bg-gray-300 text-sm m-0 p-0 leading-[1.4] font-sans">
+   <img src="https://play.tailwindcss.com/img/beams.jpg" alt="" class="fixed  top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 -z-[100]" width="1308" />
     <table class="min-w-full w-full border-collapse" role="presentation" border="0" cellpadding="0" cellspacing="0" class="bg-gray-300 w-full">
       <tr>
         <td class="text-sm align-top">&nbsp;</td>
-        <td class="block p-2 mx-auto w-[580px] max-w-[580px] text-sm align-top">
+        <td class="block p-2 mx-auto w-[580px] max-w-xl text-sm align-top">
           <div class="py-[20px]">
             <table class="min-w-full w-full border-collapse" role="presentation" border="0" cellpadding="0" cellspacing="0" >
               <tr>
                 <td class="text-center text-sm align-top">
-                  <a href="https://twinliner.netlify.app/"><img src="/mlogo.svg" height="70" alt="tailwind-inliner" class=" mx-auto"></a>
+                  <a href="https://twinliner.netlify.app/"><img src="https://raw.githubusercontent.com/kromate/tailwind-inliner/main/public/mlogo.svg" height="70" alt="tailwind-inliner" class=" mx-auto"></a>
                 </td>
               </tr>
             </table>
           </div>
-          <div class="box-border block p-2 mx-auto  max-w-[580px]">
+          <div class="box-border block p-2 mx-auto  max-w-xl">
 
             <!-- START CENTERED WHITE CONTAINER -->
             <span class="text-transparent hidden h-0 opacity-0 overflow-hidden invisible w-0">This is preheader text. Some clients will show this text as a preview.</span>
