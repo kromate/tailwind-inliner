@@ -53,6 +53,10 @@ export const copyConvertedHTML = () => {
 		console.log(getConvertedValue());
 		source.value = getConvertedValue();
 		copy();
+		btnValue.value = 'Copied!';
+		setTimeout(() => {
+			btnValue.value = initValue;
+		}, 1500);
 	};
 
 	return { btnValue, copyLink };
