@@ -10,8 +10,8 @@ import { onMounted, ref, onUnmounted } from "vue";
 import { useStorage } from "@vueuse/core";
 import { initialEditorValue, StorageName } from "../utils";
 import {
-  mountCSSEditor,
-  unmountCSSEditor,
+  mountConvertedEditor,
+  unmountConvertedEditor,
 } from "../utils/editor/convertedEditor";
 import { copyConvertedHTML } from "../utils/converter";
 
@@ -28,12 +28,12 @@ const emit =
   defineEmits<(e: "change", payload: typeof editorValue.value) => void>();
 
 onMounted(() => {
-  mountCSSEditor(container, emit);
+  mountConvertedEditor(container, emit);
   // emit("change", editorValue.value);
 });
 
 onUnmounted(() => {
-  unmountCSSEditor();
+  unmountConvertedEditor();
 });
 </script>
 

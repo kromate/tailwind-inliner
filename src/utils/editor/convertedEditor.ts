@@ -7,7 +7,7 @@ import { useResizeObserver, useStorage, useDebounceFn } from '@vueuse/core';
 
 const isDark = useDarkGlobal();
 
-export let cssEditor: monaco.editor.IStandaloneCodeEditor;
+export let ConvertedEditor: monaco.editor.IStandaloneCodeEditor;
 
 const editorState = useStorage<Record<string, any>>(
 	StorageName.EDITOR_STATE,
@@ -20,43 +20,48 @@ const editorValue = useStorage<Record<string, any>>(
 
 let editorObserver: any;
 
-export const mountCSSEditor = (container: Ref<HTMLDivElement>, emit: any) => {
-	cssEditor = monaco.editor.create(container.value!, {
+export const mountConvertedEditor = (
+	container: Ref<HTMLDivElement>,
+	emit: any
+) => {
+	ConvertedEditor = monaco.editor.create(container.value!, {
 		language: 'html',
 		theme: isDark.value ? 'vs-dark' : 'vs',
 		readOnly: true,
 	});
 
 	editorObserver = useResizeObserver(container, () => {
-		cssEditor.layout();
+		ConvertedEditor.layout();
 	});
 
-	// cssEditor.onDidChangeModelContent(
+	// ConvertedEditor.onDidChangeModelContent(
 	// 	useDebounceFn(() => {
-	// 		if (editorValue.value['css'] !== cssEditor.getValue()!) {
-	// 			editorValue.value['css'] = cssEditor.getValue()!;
+	// 		if (editorValue.value['Converted'] !== ConvertedEditor.getValue()!) {
+	// 			editorValue.value['Converted'] = ConvertedEditor.getValue()!;
 	// 			emit('change', editorValue.value);
 	// 		}
 	// 	}, 500)
 	// );
 
-	if (editorValue.value['css']) {
-		cssEditor.setValue(editorValue.value['css']);
-		cssEditor.restoreViewState(editorState.value['css']);
+	if (editorValue.value['Converted']) {
+		ConvertedEditor.setValue(editorValue.value['Converted']);
+		ConvertedEditor.restoreViewState(editorState.value['Converted']);
 	}
 
 	watch(isDark, (value) => {
-		cssEditor.updateOptions({
+		ConvertedEditor.updateOptions({
 			theme: value ? 'vs-dark' : 'vs',
 		});
 	});
 };
 
-export const unmountCSSEditor = () => {
-	cssEditor?.dispose();
+export const unmountConvertedEditor = () => {
+	ConvertedEditor?.dispose();
 	editorObserver.stop();
 };
 
 export const updateConvertedHTMLEditor = (value: any) => {
-	cssEditor.setValue(value);
+	ConvertedEditor.setValue(value);
 };
+
+export const getConvertedValue = () => {};
