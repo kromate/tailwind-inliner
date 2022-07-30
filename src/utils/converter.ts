@@ -1,5 +1,5 @@
 import inline from '../utils/inliner';
-import { updateCSSEditor } from './editor/convertedEditor';
+import { updateConvertedHTMLEditor } from './editor/convertedEditor';
 import { prettify } from './editor/prettier/index';
 
 export const convert = () => {
@@ -18,8 +18,8 @@ export const convert = () => {
 		// 	''
 		// );
 		// let removeClass = removedClassAttribute.replaceAll('class=""', '');
-		// updateCSSEditor(removeClass);
+		// updateConvertedHTMLEditor(removeClass);
 
-		updateCSSEditor(pretifiedHTML);
+		updateConvertedHTMLEditor(pretifiedHTML);
 	});
 };

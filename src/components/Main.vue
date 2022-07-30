@@ -19,7 +19,7 @@ import { onMounted, ref, watch } from "vue";
 import { useStorage } from "@vueuse/core";
 import Split from "split.js";
 
-import { generateHTML, StorageName, useDarkGlobal } from "../utils";
+import { generateHTML, useDarkGlobal } from "../utils";
 import MainEditor from "./MainEditor.vue";
 
 const iframe = ref<HTMLIFrameElement>();
