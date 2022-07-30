@@ -21,6 +21,12 @@
         Convert
       </button>
       <ConvertedEditor />
+      <button
+        type="button"
+        class="copy-btn action"
+        v-html="btnValue"
+        @click="copyLink"
+      ></button>
     </div>
   </div>
 </template>
@@ -32,8 +38,11 @@ import HTMLEditor from "./HTMLEditor.vue";
 import { onMounted } from "vue";
 import { initEditor } from "../utils/editor/index";
 import { convert } from "../utils/converter";
+import { copyConvertedHTML } from "../utils/converter";
 
 const emit = defineEmits(["change"]);
+
+const { btnValue, copyLink } = copyConvertedHTML();
 
 const onChange = (payload: Record<string, any>) => {
   emit("change", payload);

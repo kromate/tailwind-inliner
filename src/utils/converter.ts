@@ -1,5 +1,8 @@
 import inline from '../utils/inliner';
-import { updateConvertedHTMLEditor } from './editor/convertedEditor';
+import {
+	updateConvertedHTMLEditor,
+	getConvertedValue,
+} from './editor/convertedEditor';
 import { prettify } from './editor/prettier/index';
 import { ref } from 'vue';
 import { useClipboard } from '@vueuse/core';
@@ -47,11 +50,10 @@ export const copyConvertedHTML = () => {
 	const source = ref('');
 	const { copy } = useClipboard({ source });
 	const copyLink = () => {
+		console.log(getConvertedValue());
+		source.value = getConvertedValue();
 		copy();
-		alert(
-			"Seems something went wrong while trying to share, don't worry we copied it to your clipboard "
-		);
 	};
 
-	return { btnValue };
+	return { btnValue, copyLink };
 };

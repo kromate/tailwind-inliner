@@ -64,4 +64,4 @@ export const updateConvertedHTMLEditor = (value: any) => {
 	ConvertedEditor.setValue(value);
 };
 
-export const getConvertedValue = () => {};
+export const getConvertedValue = () => ConvertedEditor.getValue()!;

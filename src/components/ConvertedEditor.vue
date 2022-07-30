@@ -1,8 +1,5 @@
 <template>
-  <div ref="container" class="absolute inset-0 h-full !-z-[900000]"></div>
-  <div class="relative w-full h-full">
-    <button type="button" class="copy-btn action" v-html="btnValue"></button>
-  </div>
+  <div ref="container" class="absolute inset-0 h-full"></div>
 </template>
 
 <script setup lang="ts">
@@ -13,11 +10,8 @@ import {
   mountConvertedEditor,
   unmountConvertedEditor,
 } from "../utils/editor/convertedEditor";
-import { copyConvertedHTML } from "../utils/converter";
 
 const container = ref<HTMLDivElement | null>(null);
-
-const { btnValue } = copyConvertedHTML();
 
 const editorValue = useStorage<Record<string, any>>(
   StorageName.EDITOR_VALUE,
