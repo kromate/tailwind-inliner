@@ -7,8 +7,9 @@
   <div
     class="absolute inset-0 bg-[url(https://play.tailwindcss.com/img/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255, 0))]"
   >
+  
     <NavBar />
-    
+
     <section class="px-2 py-16 md:py-28 md:px-0">
       <div class="container items-center max-w-6xl px-5 mx-auto xl:px-5">
         <div class="flex flex-wrap items-center sm:-mx-3">
